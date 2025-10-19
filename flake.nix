@@ -10,16 +10,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
-        packages.elk = pkgs.python3Packages.buildPythonApplication {
-          pname = "elk";
-          version = "0.1.0";
-          pyproject = true;
-
-          build-system = [ pkgs.python3Packages.setuptools ];
-          propagatedBuildInputs = [ ];
-
-          src = ./.;
-        };
+        packages.elk = pkgs.callPackage ./elk.nix {};
 
         packages.default = config.packages.elk;
       };
