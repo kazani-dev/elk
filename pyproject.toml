@@ -1,0 +1,10 @@
+[project]
+name = "elk"
+version = "0.1.0"
+description = "a program for managing a local store for ephemeral directories nested in network resources"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+elk = "elk:main"
